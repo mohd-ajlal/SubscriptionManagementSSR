@@ -1,0 +1,17 @@
+<%- include("partials/navbar") %>
+
+<div class="container mt-5">
+  <h2>Subscription Details</h2>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Plan: <%= subscription.plan %></h3>
+      <p class="card-text">Cost: $<%= subscription.cost %></p>
+      <p class="card-text">Start Date: <%= subscription.startDate.toDateString() %></p>
+      <p class="card-text">End Date: <%= subscription.endDate ? subscription.endDate.toDateString() : "N/A" %></p>
+      <a href="/subscriptions/<%= subscription._id %>/edit" class="btn btn-secondary">Edit</a>
+      <form action="/subscriptions/<%= subscription._id %>?_method=DELETE" method="POST" class="d-inline">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
