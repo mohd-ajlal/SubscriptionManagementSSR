@@ -6,10 +6,9 @@ const app = express();
 const PORT = 3000;
 
 
-mongoose.connect("mongodb://localhost:27017/subscriptionDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb://localhost:27017/subscriptionDB")
+  .then(() => console.log("Connected to DB"))
+  .catch((err) => console.log(err));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
